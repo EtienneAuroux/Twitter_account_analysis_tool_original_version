@@ -18,7 +18,7 @@ import dash_bootstrap_components as dbc
 import datetime
 import base64
 
-app_icon_filename=r'Icons\app_icon.png'
+app_icon_filename='app_icon.png'
 app_image=base64.b64encode(open(app_icon_filename,'rb').read())
 error_icon_filename=r'Icons\error_icon.png'
 error_image=base64.b64encode(open(error_icon_filename,'rb').read())

@@ -20,6 +20,11 @@ import base64
 
 STATIC_PATH='Icons'
 
+##Layout of the webpage
+default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app=dash.Dash(__name__,external_stylesheets=[default_stylesheets,dbc.themes.BOOTSTRAP]) #initialising dash app
+server = app.server
+
 app_icon_filename=r'Icons\'app_icon.png'
 app_image=base64.b64encode(open(app_icon_filename,'rb').read())
 error_icon_filename=r'Icons\error_icon.png'
@@ -33,11 +38,6 @@ rank_filename3=r'Icons\rank_3.png'
 rank_filename4=r'Icons\rank_4.png'
 rank_filename5=r'Icons\rank_5.png'
 encoded_image=[base64.b64encode(open(comment_filename,'rb').read()),base64.b64encode(open(retweet_filename,'rb').read()),base64.b64encode(open(like_filename,'rb').read()),base64.b64encode(open(rank_filename1,'rb').read()),base64.b64encode(open(rank_filename2,'rb').read()),base64.b64encode(open(rank_filename3,'rb').read()),base64.b64encode(open(rank_filename4,'rb').read()),base64.b64encode(open(rank_filename5,'rb').read())]
-
-##Layout of the webpage
-default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app=dash.Dash(__name__,external_stylesheets=[default_stylesheets,dbc.themes.BOOTSTRAP]) #initialising dash app
-server = app.server
 
 app.layout=html.Div(id='parent',children=[
     dcc.Store(id='data_storage',storage_type='local'),

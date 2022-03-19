@@ -1,0 +1,477 @@
+body{
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	height: 85vw;
+}
+
+.header_avatar{
+	position: absolute;
+	height: 7vw;
+	width: 7.2vw;
+	margin: 0;
+	padding: 0;
+	padding-left: 0.2vw;
+	vertical-align: top;
+	display: inline-block;
+	background-color: #1DA1F2; /*Twitter blue code*/
+}
+
+.header_main{
+	position: absolute;
+	left: 7.2vw;
+	background-color: #1DA1F2;
+	height: 7vw;
+	width: 92.8vw;
+	margin: 0;
+	vertical-align: top;
+	padding: 0;
+	padding-top: 1vw;
+	padding-left: 0vw;
+	padding-right: 9vw;
+	color: white;
+	font-family: Bahnschrift Light;
+	font-size: 4vw;
+	text-align: center;
+	display: inline-block;
+}
+
+.bottom_info{
+	position: absolute;
+	left: 0;
+	top: 82vw;
+	height: 3vw;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	padding-top: 0.5vw;
+	padding-right: 2vw;
+	background-color: #D3D3D3;
+	color: black;
+	font-size: 1.5vw;
+	font-family: Bahnschrift Light;
+	text-align: center;
+}
+
+.row{
+	margin: 0;
+	padding: 0;
+}
+/*
+.left{
+	width: 30vw;
+	padding-left: 2vw;
+	padding-top: 1vw;
+	padding-right: 0;
+	margin: 0;
+	display: inline-block;
+}
+
+.right{
+	width: 68.5vw;
+	padding-left: 1.5vw;
+	padding-top: 1vw;
+	padding-right: 1.5vw;
+	margin: 0;
+	display: inline-block;
+}
+*/
+.block{
+	margin: 0;
+	padding: 0;
+	border-style: solid;
+	border-width: 0.1vw;
+	border-color: white;
+	border-radius: 0;
+	background-color: white;
+	vertical-align: top;
+	font-family: Gill sans MT;
+	box-shadow: 0 0.2vw 0.4vw 0 rgba(0,0,0,0.2), 0 0.3vw 1vw 0 rgba(0,0,0,0.19);
+}
+
+.input_block{
+	position: absolute;
+	top: 8.5vw;
+	left: 2vw;
+	width: 30vw;
+	height: 17.5vw;	
+}
+
+.progress_block{
+	position: absolute;
+	top: 27vw;
+	left: 2vw;
+	width: 30vw;
+	height: 9vw;
+}
+
+.choice_block{
+	position: absolute;
+	top: 37vw;
+	left: 2vw;
+	width: 30vw;
+	height: 9vw;
+}
+
+.error_block_date{
+	position: absolute;
+	top: 8.5vw;
+	left: 35vw;
+	width: 25vw;
+	height: 17.5vw;
+	background-color: #D70040;
+	color: white;
+	border: #D70040;
+}
+
+.error_block_user{
+	position: absolute;
+	top: 27vw;
+	left: 35vw;
+	width: 25vw;
+	height: 17.5vw;
+	background-color: #D70040;
+	color: white;
+	border: #D70040;
+}
+
+.error_img{
+	width: 6vw;
+	margin: 0;
+	margin-left: 9.5vw;
+	margin-top: 1vw;
+	padding: 0;
+	vertical-align: top;
+}
+
+.graph_block{
+	position: absolute;
+	top: 8.5vw;
+	left: 34vw;
+	width: 63vw;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.header_column{
+	background-color: white;
+	margin: 0;
+	padding-top: 1vw;
+	color: black;
+	text-align: center;
+	font-family: Bahnschrift Light;
+	font-size: 2vw;
+}
+
+.header_error{
+	background-color: #D70040;
+	margin: 0;
+	padding-top: 1vw;
+	color: white;
+	text-align: center;
+	font-family: Bahnschrift Light;
+	font-size: 2vw;
+}
+
+.text_P{
+	font-size: 1.3vw;
+	margin: 0;
+	padding: 0;
+}
+
+.text_username{
+	position: absolute;
+	top: 5vw;
+	left: 2vw;
+}
+
+.text_since{
+	position: absolute;
+	top: 9vw;
+	left: 2vw;
+}
+
+.text_until{
+	position: absolute;
+	top: 9vw;
+	left: 15.5vw;
+}
+
+.input_field{
+	padding: 0.7vw;
+	height: 2.1vw;
+	box-sizing: border-box;
+	border: 0.1vw solid;
+	border-radius: 0.3vw;
+	border-color: #657786;
+	font-size: 1.3vw;
+}
+
+.input_username{
+	position: absolute;
+	top: 5vw;
+	left: 8.5vw;
+	width: 19vw;
+	margin: 0;
+	margin-bottom: 1.5vw;
+}
+
+.input_since{
+	position: absolute;
+	top: 9vw;
+	left: 6vw;
+	width: 8vw;
+	margin: 0;
+}
+
+.input_until{
+	position: absolute;
+	top: 9vw;
+	left: 19.5vw;
+	width: 8vw;
+	margin: 0;
+}
+
+.date_field{
+	padding: 0;
+	margin: 0;
+	margin-right: 1.5vw;
+}
+
+.annotation_username{
+	position: absolute;
+	top: 7vw;
+	left: 10vw;
+	font-size: 0.8vw;
+	margin: 0;
+	padding: 0;
+	color: #657786;
+}
+
+.annotation_since{
+	position: absolute;
+	top: 11vw;
+	left: 7.3vw;
+	font-size: 0.8vw;
+	margin: 0;
+	padding: 0;
+	color: #657786;
+}
+
+.annotation_until{
+	position: absolute;
+	top: 11vw;
+	left: 20.8vw;
+	font-size: 0.8vw;
+	margin: 0;
+	padding: 0;
+	color: #657786;
+}
+
+.error_message{
+	margin: 0;
+	margin-top: 1vw;
+	padding: 0;
+	text-align: center;
+	align-items: center;
+	font-size: 1.4vw
+}
+
+.button_submit{
+	position: absolute;
+	top: 13.5vw;
+	left:2.3vw;
+	align-items: center;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	width: 12vw;
+	height: 2.8vw;
+	background-color: #1DA1F2;
+	color: white;
+	border-color: #1DA1F2;
+	border-radius: 0.3vw;
+	font-size: 1.4vw
+}
+
+.button_reset{
+	position: absolute;
+	top: 13.5vw;
+	left: 15.3vw;
+	align-items: center;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	width: 12vw;
+	height: 2.8vw;
+	background-color: #D70040; /*Carmine code*/
+	color: white;
+	border-color: #D70040;
+	border-radius: 0.3vw;
+	font-size: 1.4vw
+}
+
+.progress_bar{
+	position: absolute;
+	top: 5vw;
+	left: 2vw;
+	width: 26vw;
+	height: 2.5vw;
+	margin: 0;
+	padding: 0;
+	border-radius: 0.3vw;
+	font-size: 1.4vw;
+}
+
+.choice_menu{
+	position: absolute;
+	top: 5vw;
+	bottom: 7.5vw;
+	left: 2vw;
+	width: 26vw;
+	height: 2.5vw;
+	margin: 0;
+	padding: 0;
+	border-radius: 0.3vw;
+	font-size: 1.4vw;
+	text-align: left;
+}
+
+.graph{
+	vertical-align: top;
+	margin: 0;
+	margin-right: 1vw;
+	margin-left: 1vw;
+	margin-bottom: 1vw;
+}
+
+.tweet_block{
+	width: 30vw;
+	background: #fff;
+	border-radius: 1vw;
+	margin: 0;
+	margin-left: 1vw;
+	margin-top: 1vw;
+	padding: 1vw;
+	border: 0.1vw solid #e6ecf0;
+	font-family: Segoe UI;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.first_tweet{
+	margin-left: 16.5vw;
+}
+/*
+.second_tweet{
+	position: static;
+	top: 15vw;
+	left: 1vw;
+}
+
+.third_tweet{
+	position: relative;
+	top: 5vw;
+	left: 32vw;
+}
+*/
+.fourth_tweet{
+	margin-bottom: 1vw;
+}
+
+.fifth_tweet{
+	margin-bottom: 1vw;
+}
+
+.tweet_header{
+	margin: 0;
+	padding: 0;
+	width: 30vw;
+	height: min-content;
+}
+
+.avatar{
+	border-radius: 10vw;
+	width: 2.7vw;
+	margin-right: 0.7vw;
+	vertical-align: top;
+}
+
+.public_header{
+	font-weight: bold;
+	color: black;
+	margin: 0;
+	padding: 0;
+	font-size: 0.9vw;
+	font-family: Segoe UI;
+	vertical-align: top;
+}
+
+.account_header{
+	font-weight: normal;
+	color: #657786;
+	margin: 0;
+	font-size: 0.9vw;
+	padding: 0;
+	font-family: Segoe UI;
+	vertical-align: top;
+}
+
+.ranking{
+	vertical-align: top;
+	text-align: right;
+	width: 3vw;
+}
+
+.tweet_content{
+	font-size: 1.5vw;
+	margin: 0;
+}
+
+.date_infos{
+	margin: 0;
+	padding: 0;
+	font-size: 0.9vw;
+}
+
+.text_date{
+	color: #657786;
+	margin-right: 0.5vw;
+}
+
+.tweet_picture_block{
+	height:0;
+	margin: 0;
+	padding: 0;
+}
+
+.tweet_picture{
+	margin: 0;
+	padding: 0;
+}
+
+.tweet_infos{
+	height: 2vw;
+	border-top: 0.1vw solid #e6ecf0;
+	margin: 0;
+	padding-top: 0.5vw;
+	padding-bottom:0;
+}
+
+.count_icon{
+	width: 1.5vw;
+	vertical-align: middle;
+	margin: 0;
+	margin-right: 0.5vw;
+	padding: 0;
+}
+
+.metric_count{
+	margin-right: 4vw;
+	margin-bottom: 0;
+	padding: 0;
+	font-size: 1.2vw;
+}
+
+

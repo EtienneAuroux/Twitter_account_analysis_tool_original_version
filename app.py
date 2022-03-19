@@ -18,7 +18,9 @@ import dash_bootstrap_components as dbc
 import datetime
 import base64
 
-app_icon_filename='app_icon.png'
+STATIC_PATH = 'static'
+
+app_icon_filename=r'Icons\'app_icon.png'
 app_image=base64.b64encode(open(app_icon_filename,'rb').read())
 error_icon_filename=r'Icons\error_icon.png'
 error_image=base64.b64encode(open(error_icon_filename,'rb').read())
@@ -478,6 +480,10 @@ for i in range(0,5):
         else:
             return '','','','','','','','',''        
 
+@app.server.route('/static/<resource>')
+def serve_static(resource):
+    return flask.send_from_directory(STATIC_PATH, resource)
+        
 if __name__ =='__main__':
     app.run_server(debug=True,port=8050,use_reloader=False)
 

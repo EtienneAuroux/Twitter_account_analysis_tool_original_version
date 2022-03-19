@@ -37,6 +37,7 @@ encoded_image=[base64.b64encode(open(comment_filename,'rb').read()),base64.b64en
 ##Layout of the webpage
 default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app=dash.Dash(__name__,external_stylesheets=[default_stylesheets,dbc.themes.BOOTSTRAP]) #initialising dash app
+server = app.server
 
 app.layout=html.Div(id='parent',children=[
     dcc.Store(id='data_storage',storage_type='local'),

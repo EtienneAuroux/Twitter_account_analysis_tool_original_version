@@ -17,14 +17,13 @@ from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 import datetime
 import base64
-#from whitenoise import WhiteNoise
-
-STATIC_PATH='static'
+from whitenoise import WhiteNoise
 
 ##Layout of the webpage
 default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app=dash.Dash(__name__,external_stylesheets=[default_stylesheets,dbc.themes.BOOTSTRAP]) #initialising dash app
 server = app.server
+app.wsgi_app=WhiteNoise(app.wsgi_app,root="staticfiles")
 
 app_icon_filename=r'\static\'app_icon.png'
 app_image=base64.b64encode(open(app_icon_filename,'rb').read())

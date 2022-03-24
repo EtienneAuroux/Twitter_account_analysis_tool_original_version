@@ -98,7 +98,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public1',className='public_header'),
                                 html.P(id='account1',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank1',className='ranking',src=r'\static\rank_1.png,style={'display':'inline-block'})
+                            html.Img(id='rank1',className='ranking',src=r'\static\rank_1.png',style={'display':'inline-block'})
                             ]),
                         html.P(id='content1',className='tweet_content'),
                         html.Div(id='day_hour1',className='date_infos',children=[
@@ -126,7 +126,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public2',className='public_header'),
                                 html.P(id='account2',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank2',className='ranking',src=r'\static\rank_2.png,style={'display':'inline-block'}),
+                            html.Img(id='rank2',className='ranking',src=r'\static\rank_2.png',style={'display':'inline-block'}),
                             html.P(id='content2',className='tweet_content'),
                             html.Div(id='day_hour2',className='date_infos',children=[
                                 html.P(id='hour2',className='text_date',style={'display':'inline-block'}),
@@ -153,7 +153,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public3',className='public_header'),
                                 html.P(id='account3',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank3',className='ranking',src=r'\static\rank_3.png,style={'display':'inline-block'}),
+                            html.Img(id='rank3',className='ranking',src=r'\static\rank_3.png',style={'display':'inline-block'}),
                             html.P(id='content3',className='tweet_content'),
                             html.Div(id='day_hour3',className='date_infos',children=[
                                 html.P(id='hour3',className='text_date',style={'display':'inline-block'}),
@@ -180,7 +180,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public4',className='public_header'),
                                 html.P(id='account4',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank4',className='ranking',src=r'\static\rank_4.png,style={'display':'inline-block'}),
+                            html.Img(id='rank4',className='ranking',src=r'\static\rank_4.png',style={'display':'inline-block'}),
                             html.P(id='content4',className='tweet_content'),
                             html.Div(id='day_hour4',className='date_infos',children=[
                                 html.P(id='hour4',className='text_date',style={'display':'inline-block'}),
@@ -207,7 +207,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public5',className='public_header'),
                                 html.P(id='account5',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank5',className='ranking',src=r'\static\rank_5.png,style={'display':'inline-block'}),
+                            html.Img(id='rank5',className='ranking',src=r'\static\rank_5.png',style={'display':'inline-block'}),
                             html.P(id='content5',className='tweet_content'),
                             html.Div(id='day_hour5',className='date_infos',children=[
                                 html.P(id='hour5',className='text_date',style={'display':'inline-block'}),

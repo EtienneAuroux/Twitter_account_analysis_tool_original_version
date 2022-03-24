@@ -29,23 +29,9 @@ app=dash.Dash(__name__,external_stylesheets=[default_stylesheets,dbc.themes.BOOT
 server = app.server
 server.wsgi_app = WhiteNoise(server.wsgi_app,root=os.path.join(os.path.dirname(__file__), 'static'),prefix='static/')
 
-app_icon_filename=r'\static\'app_icon.png'
-app_image=base64.b64encode(open(app_icon_filename,'rb').read())
-error_icon_filename=r'\static\error_icon.png'
-error_image=base64.b64encode(open(error_icon_filename,'rb').read())
-comment_filename=r'\static\comment_icon.png'
-retweet_filename=r'\static\retweet_icon.png'
-like_filename=r'\static\like_icon.png'
-rank_filename1=r'\static\rank_1.png'
-rank_filename2=r'\static\rank_2.png'
-rank_filename3=r'\static\rank_3.png'
-rank_filename4=r'\static\rank_4.png'
-rank_filename5=r'\static\rank_5.png'
-encoded_image=[base64.b64encode(open(comment_filename,'rb').read()),base64.b64encode(open(retweet_filename,'rb').read()),base64.b64encode(open(like_filename,'rb').read()),base64.b64encode(open(rank_filename1,'rb').read()),base64.b64encode(open(rank_filename2,'rb').read()),base64.b64encode(open(rank_filename3,'rb').read()),base64.b64encode(open(rank_filename4,'rb').read()),base64.b64encode(open(rank_filename5,'rb').read())]
-
 app.layout=html.Div(id='parent',children=[
     dcc.Store(id='data_storage',storage_type='local'),
-    html.Img(id='header_icon',className='header_avatar',src='data:image/png;base64,{}'.format(app_image.decode()),style={'display':'inline-block'}),
+    html.Img(id='header_icon',className='header_avatar',src=r'\static\'app_icon.png',style={'display':'inline-block'}),
     html.H1('Twitter analysis tool',className='header_main'),
     html.Div(id='header',className='row',children=[
         html.Div(id='left_column',className='left',children=[
@@ -72,7 +58,7 @@ app.layout=html.Div(id='parent',children=[
             dbc.Collapse(id='hide_error',children=[
                 html.Div(id='middle_column_top',className='block error_block_date',children=[
                     html.H3('Error',className='header_error',id='error_heading'),
-                    html.Img(id='error_icon',className='error_img',src='data:image/png;base64,{}'.format(error_image.decode())),
+                    html.Img(id='error_icon',className='error_img',src=r'\static\error_icon.png'),
                     html.P(id='error_cause',className='error_message'),
                     ])
                 ],is_open=False),
@@ -113,7 +99,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public1',className='public_header'),
                                 html.P(id='account1',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank1',className='ranking',src='data:image/png;base64,{}'.format(encoded_image[3].decode()),style={'display':'inline-block'})
+                            html.Img(id='rank1',className='ranking',src=r'\static\rank_1.png,style={'display':'inline-block'})
                             ]),
                         html.P(id='content1',className='tweet_content'),
                         html.Div(id='day_hour1',className='date_infos',children=[
@@ -125,11 +111,11 @@ app.layout=html.Div(id='parent',children=[
                             html.Img(id='tweet_image1',className='tweet_picture')
                             ]),
                         html.Div(id='tweet_counts1',className='tweet_infos',children=[
-                            html.Img(id='comment_icon1',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[0].decode()),style={'display':'inline-block'}),
+                            html.Img(id='comment_icon1',className='count_icon',src=r'\static\comment_icon.png',style={'display':'inline-block'}),
                             html.P(id='comments1',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='retweet_icon1',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[1].decode()),style={'display':'inline-block'}),
+                            html.Img(id='retweet_icon1',className='count_icon',src=r'\static\retweet_icon.png',style={'display':'inline-block'}),
                             html.P(id='retweets1',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='like_icon1',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[2].decode()),style={'display':'inline-block'}),
+                            html.Img(id='like_icon1',className='count_icon',src=r'\static\like_icon.png',style={'display':'inline-block'}),
                             html.P(id='likes1',className='metric_count',style={'display':'inline-block'})
                             ])
                         ]),
@@ -141,7 +127,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public2',className='public_header'),
                                 html.P(id='account2',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank2',className='ranking',src='data:image/png;base64,{}'.format(encoded_image[4].decode()),style={'display':'inline-block'}),
+                            html.Img(id='rank2',className='ranking',src=r'\static\rank_2.png,style={'display':'inline-block'}),
                             html.P(id='content2',className='tweet_content'),
                             html.Div(id='day_hour2',className='date_infos',children=[
                                 html.P(id='hour2',className='text_date',style={'display':'inline-block'}),
@@ -153,11 +139,11 @@ app.layout=html.Div(id='parent',children=[
                             html.Img(id='tweet_image2',className='tweet_picture')
                             ]),
                         html.Div(id='tweet_counts2',className='tweet_infos',children=[
-                            html.Img(id='comment_icon2',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[0].decode()),style={'display':'inline-block'}),
+                            html.Img(id='comment_icon2',className='count_icon',src=r'\static\comment_icon.png',style={'display':'inline-block'}),
                             html.P(id='comments2',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='retweet_icon2',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[1].decode()),style={'display':'inline-block'}),
+                            html.Img(id='retweet_icon2',className='count_icon',src=r'\static\retweet_icon.png',style={'display':'inline-block'}),
                             html.P(id='retweets2',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='like_icon2',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[2].decode()),style={'display':'inline-block'}),
+                            html.Img(id='like_icon2',className='count_icon',src=r'\static\like_icon.png',style={'display':'inline-block'}),
                             html.P(id='likes2',className='metric_count',style={'display':'inline-block'})
                             ])
                         ]),
@@ -168,7 +154,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public3',className='public_header'),
                                 html.P(id='account3',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank3',className='ranking',src='data:image/png;base64,{}'.format(encoded_image[5].decode()),style={'display':'inline-block'}),
+                            html.Img(id='rank3',className='ranking',src=r'\static\rank_3.png,style={'display':'inline-block'}),
                             html.P(id='content3',className='tweet_content'),
                             html.Div(id='day_hour3',className='date_infos',children=[
                                 html.P(id='hour3',className='text_date',style={'display':'inline-block'}),
@@ -180,11 +166,11 @@ app.layout=html.Div(id='parent',children=[
                             html.Img(id='tweet_image3',className='tweet_picture')
                             ]),
                         html.Div(id='tweet_counts3',className='tweet_infos',children=[
-                            html.Img(id='comment_icon3',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[0].decode()),style={'display':'inline-block'}),
+                            html.Img(id='comment_icon3',className='count_icon',src=r'\static\comment_icon.png',style={'display':'inline-block'}),
                             html.P(id='comments3',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='retweet_icon3',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[1].decode()),style={'display':'inline-block'}),
+                            html.Img(id='retweet_icon3',className='count_icon',src=r'\static\retweet_icon.png',style={'display':'inline-block'}),
                             html.P(id='retweets3',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='like_icon3',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[2].decode()),style={'display':'inline-block'}),
+                            html.Img(id='like_icon3',className='count_icon',src=r'\static\like_icon.png',style={'display':'inline-block'}),
                             html.P(id='likes3',className='metric_count',style={'display':'inline-block'})
                             ])
                         ]),
@@ -195,7 +181,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public4',className='public_header'),
                                 html.P(id='account4',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank4',className='ranking',src='data:image/png;base64,{}'.format(encoded_image[6].decode()),style={'display':'inline-block'}),
+                            html.Img(id='rank4',className='ranking',src=r'\static\rank_4.png,style={'display':'inline-block'}),
                             html.P(id='content4',className='tweet_content'),
                             html.Div(id='day_hour4',className='date_infos',children=[
                                 html.P(id='hour4',className='text_date',style={'display':'inline-block'}),
@@ -207,11 +193,11 @@ app.layout=html.Div(id='parent',children=[
                             html.Img(id='tweet_image4',className='tweet_picture')
                             ]),
                         html.Div(id='tweet_counts4',className='tweet_infos',children=[
-                            html.Img(id='comment_icon4',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[0].decode()),style={'display':'inline-block'}),
+                            html.Img(id='comment_icon4',className='count_icon',src=r'\static\comment_icon.png',style={'display':'inline-block'}),
                             html.P(id='comments4',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='retweet_icon4',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[1].decode()),style={'display':'inline-block'}),
+                            html.Img(id='retweet_icon4',className='count_icon',src=r'\static\retweet_icon.png',style={'display':'inline-block'}),
                             html.P(id='retweets4',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='like_icon4',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[2].decode()),style={'display':'inline-block'}),
+                            html.Img(id='like_icon4',className='count_icon',src=r'\static\like_icon.png',style={'display':'inline-block'}),
                             html.P(id='likes4',className='metric_count',style={'display':'inline-block'})
                             ])
                         ]),
@@ -222,7 +208,7 @@ app.layout=html.Div(id='parent',children=[
                                 html.P(id='public5',className='public_header'),
                                 html.P(id='account5',className='account_header')
                                 ],style={'display':'inline-block'}),
-                            html.Img(id='rank5',className='ranking',src='data:image/png;base64,{}'.format(encoded_image[7].decode()),style={'display':'inline-block'}),
+                            html.Img(id='rank5',className='ranking',src=r'\static\rank_5.png,style={'display':'inline-block'}),
                             html.P(id='content5',className='tweet_content'),
                             html.Div(id='day_hour5',className='date_infos',children=[
                                 html.P(id='hour5',className='text_date',style={'display':'inline-block'}),
@@ -234,11 +220,11 @@ app.layout=html.Div(id='parent',children=[
                             html.Img(id='tweet_image5',className='tweet_picture')
                             ]),
                         html.Div(id='tweet_counts5',className='tweet_infos',children=[
-                            html.Img(id='comment_icon5',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[0].decode()),style={'display':'inline-block'}),
+                            html.Img(id='comment_icon5',className='count_icon',src=r'\static\comment_icon.png',style={'display':'inline-block'}),
                             html.P(id='comments5',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='retweet_icon5',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[1].decode()),style={'display':'inline-block'}),
+                            html.Img(id='retweet_icon5',className='count_icon',src=r'\static\retweet_icon.png',style={'display':'inline-block'}),
                             html.P(id='retweets5',className='metric_count',style={'display':'inline-block'}),
-                            html.Img(id='like_icon5',className='count_icon',src='data:image/png;base64,{}'.format(encoded_image[2].decode()),style={'display':'inline-block'}),
+                            html.Img(id='like_icon5',className='count_icon',src=r'\static\like_icon.png',style={'display':'inline-block'}),
                             html.P(id='likes5',className='metric_count',style={'display':'inline-block'})
                             ])
                         ])

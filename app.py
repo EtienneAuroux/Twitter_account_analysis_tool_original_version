@@ -18,6 +18,9 @@ import dash_bootstrap_components as dbc
 import datetime
 import base64
 from whitenoise import WhiteNoise
+import flask
+
+STATIC_PATH = 'static'
 
 ##Layout of the webpage
 default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -480,6 +483,10 @@ for i in range(0,5):
             return profile_picture,account_name,public_name,top_content[i],top_dates[i],top_times[i],top_reply[i],top_retweet[i],top_like[i]
         else:
             return '','','','','','','','',''        
+        
+@app.server.route('/static/<resource>')
+def serve_static(resource):
+    return flask.send_from_directory(STATIC_PATH, resource)
       
 if __name__ =='__main__':
     app.run_server(debug=True,port=8050,use_reloader=False)

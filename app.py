@@ -65,7 +65,7 @@ app.layout=html.Div(id='parent',children=[
             dbc.Collapse(id='hide_error2',children=[
                 html.Div(id='middle_column_middle',className='block error_block_user',children=[
                     html.H3('Error',className='header_error',id='error_heading2'),
-                    html.Img(id='error_icon2',className='error_img',src='data:image/png;base64,{}'.format(error_image.decode())),
+                    html.Img(id='error_icon2',className='error_img',src=r'\static\error_icon.png'),
                     html.P('This username does not exist during this period, click on Reset to retry.',id='error_cause2',className='error_message'),
                     ])
                 ],is_open=False),

@@ -23,7 +23,7 @@ from whitenoise import WhiteNoise
 default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app=dash.Dash(__name__,external_stylesheets=[default_stylesheets,dbc.themes.BOOTSTRAP]) #initialising dash app
 server = app.server
-server.wsgi_app = WhiteNoise(server.wsgi_app, root=‘static/’)
+server.wsgi_app = WhiteNoise(server.wsgi_app,root='static/')
 
 app_icon_filename=r'\static\'app_icon.png'
 app_image=base64.b64encode(open(app_icon_filename,'rb').read())

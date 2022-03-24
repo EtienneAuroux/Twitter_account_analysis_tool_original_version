@@ -16,7 +16,6 @@ from dash.dependencies import Output, Input, State
 from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 import datetime
-import base64
 from whitenoise import WhiteNoise
 #import flask
 import os

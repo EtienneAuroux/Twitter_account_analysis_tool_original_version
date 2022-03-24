@@ -18,15 +18,15 @@ import dash_bootstrap_components as dbc
 import datetime
 import base64
 from whitenoise import WhiteNoise
-import flask
+#import flask
 
-STATIC_PATH = 'static'
+#STATIC_PATH = 'static'
 
 ##Layout of the webpage
 default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app=dash.Dash(__name__,external_stylesheets=[default_stylesheets,dbc.themes.BOOTSTRAP]) #initialising dash app
 server = app.server
-server.wsgi_app = WhiteNoise(server.wsgi_app,root='static/')
+server.wsgi_app = WhiteNoise(server.wsgi_app,root='static/', prefix='static/')
 
 app_icon_filename=r'\static\'app_icon.png'
 app_image=base64.b64encode(open(app_icon_filename,'rb').read())
@@ -484,9 +484,9 @@ for i in range(0,5):
         else:
             return '','','','','','','','',''        
         
-@app.server.route('/static/<resource>')
-def serve_static(resource):
-    return flask.send_from_directory(STATIC_PATH, resource)
+#@app.server.route('/static/<resource>')
+#def serve_static(resource):
+#    return flask.send_from_directory(STATIC_PATH, resource)
       
 if __name__ =='__main__':
     app.run_server(debug=True,port=8050,use_reloader=False)

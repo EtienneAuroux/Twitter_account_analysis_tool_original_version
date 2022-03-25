@@ -9,5 +9,5 @@ itsdangerous==1.1.0
 whitenoise==6.0.0
 jinja2==2.11.2
 MarkupSafe==1.1.1
-snscrape==0.4.3.20220106
+snscrape==0.3.4
 gunicorn

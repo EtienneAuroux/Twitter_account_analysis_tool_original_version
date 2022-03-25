@@ -6,19 +6,17 @@ Created on Sat Feb 26 12:17:41 2022
 """
 
 ##Modules
-from Twitter_DataMining_3 import twitter_scrapper
-from Twitter_Engagement_4 import engagement_metrics, top_five, analytics
-from Twitter_inputs_check import date_format
-import plotly.graph_objects as go
 import dash
 from dash import html, dcc
 from dash.dependencies import Output, Input, State
 from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
+import plotly.graph_objects as go
 import datetime
 from whitenoise import WhiteNoise
-#import flask
 import os
+from support_functions import 
+#import flask
 
 #STATIC_PATH = 'static'
 

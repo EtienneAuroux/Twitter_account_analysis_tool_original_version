@@ -1,26 +1,131 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 25 10:20:26 2022
+Created on Fri Mar 25 14:26:03 2022
 
 @author: ETIENNEA
 """
-# import pandas as pd
-# file=r'Previous_versions\Data\Tweets_from_elonmusk_2019-12-31_to_2020-03-31.xlsx'
-# data_sheet=pd.read_excel(file,sheet_name='Dates_and_Tweets',skiprows=1)
-# data_values=data_sheet.values
-# content=data_values[:,4]
-# reply_count=data_values[:,8]
-# like_count=data_values[:,9]
-# retweet_count=data_values[:,10]
-# quote_count=data_values[:,11]
 
+import numpy as np
+import snscrape.modules.twitter as sntwitter
+import math
+import datetime
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import re
+import collections
+
+def date_format(start_date,end_date):
+    
+    proper_format=re.compile('\d\d\d\d-\d\d-\d\d') 
+    
+    if proper_format.match(start_date) is None and proper_format.match(end_date) is not None:
+        message='Start'
+    elif proper_format.match(end_date) is None and proper_format.match(start_date) is not None:
+        message='End'
+    elif proper_format.match(start_date) is None and proper_format.match(end_date) is None:
+        message='Both'
+    else:
+        k1=0
+        k2=0
+        try:
+            datetime.datetime.strptime(start_date,'%Y-%m-%d')
+        except ValueError:
+            k1=1
+        try:
+            datetime.datetime.strptime(end_date,'%Y-%m-%d')
+        except ValueError:
+            k2=1
+        if k1==1 and k2==0:
+            message='Start out'
+        elif k1==0 and k2==1:
+            message='End out'
+        elif k1==1 and k2==1:
+            message='Both out'
+        else:
+            if start_date==end_date:
+                message='Same'
+            else:
+                message='Dates ok'
+    return message
+
+def twitter_scrapper(twitter_username,start_date,end_date):
+
+    unixdates=[]
+    dates=[]
+    times=[]
+    content=[]
+    reply=[]
+    ids=[]
+    reply_count=[]
+    like_count=[]
+    retweet_count=[]
+    quote_count=[]
+    followers=[]
+    friends=[]
+    thumbnail=[]
+    media_url=[]
+    reply_username=[]
+    
+    for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:@'+twitter_username+' + since:'+start_date+' until:'+end_date).get_items()):
+        tweet_time=tweet.date
+        dates=np.append(dates,tweet_time.strftime('%d/%m/%Y'))
+        times=np.append(times,tweet_time.strftime('%H:%M:%S'))
+        unixdates=np.append(unixdates,tweet_time.timestamp())
+        content=np.append(content,tweet.content)
+        reply=np.append(reply,tweet.inReplyToUser)
+        ids=np.append(ids,tweet.id)
+        reply_count=np.append(reply_count,tweet.replyCount)
+        like_count=np.append(like_count,tweet.likeCount)
+        retweet_count=np.append(retweet_count,tweet.retweetCount)
+        quote_count=np.append(quote_count,tweet.quoteCount)
+        followers=np.append(followers,tweet.user.followersCount)
+        friends=np.append(friends,tweet.user.friendsCount)
+        if 'http' in tweet.content:
+            k=0
+            try:
+                media_url=np.append(media_url,tweet.media[0].previewUrl)
+                thumbnail=np.append(thumbnail,'none')
+            except TypeError:
+                quoted=tweet
+                k=1 #that's a quoted tweet
+            except AttributeError:
+                original=tweet.media[0]
+                k=2 #that's an original tweet
+            if k==1:
+                media_url=np.append(media_url,quoted.outlinks[0])
+                thumbnail=np.append(thumbnail,'none')
+            elif k==2:
+                media_url=np.append(media_url,original.variants[0].url)
+                thumbnail=np.append(thumbnail,original.thumbnailUrl)
+        else:
+            media_url=np.append(media_url,'no media')
+            thumbnail=np.append(thumbnail,'none')
+    
+    mistake=False
+    try:
+        account_name=tweet.user.username
+    except UnboundLocalError:
+        mistake=True
+    
+    if mistake==False:
+        account_name='@'+account_name
+        public_name=tweet.user.displayname
+        profile_picture=tweet.user.profileImageUrl
+        
+        for i in range(len(unixdates)):
+            if 'http' in content[i]:
+                url_start=content[i].find('http')
+                content[i]=content[i][:url_start]
+            try:
+                reply_username=np.append(reply_username,reply[i].username)
+            except AttributeError:
+                reply_username=np.append(reply_username,'')
+        
+        return unixdates, dates, times, ids, content, media_url, thumbnail, reply_username, reply_count, like_count, retweet_count, quote_count, followers, friends, account_name, public_name, profile_picture
+    else:
+        return 'Uwrong'
+    
 def engagement_metrics(unixdates,dates,reply_count,like_count,retweet_count,quote_count):
-    ##Modules
-    import math
-    import numpy as np
-    import datetime
-    import plotly.graph_objects as go
-    from plotly.subplots import make_subplots
     
     ##Plot
     #Calibrating axes
@@ -122,12 +227,9 @@ def engagement_metrics(unixdates,dates,reply_count,like_count,retweet_count,quot
     fig.layout.plot_bgcolor='white'
     fig.layout.paper_bgcolor='white'
     
-    return fig 
+    return fig
 
 def top_five(dates,times,content,media_url,thumbnail_url,reply_count,like_count,retweet_count,account_name,public_name,profile_picture):
-    ##Modules
-    import numpy as np
-    import datetime
     
     ##Arranging data
     if len(like_count)<5:
@@ -156,11 +258,6 @@ def top_five(dates,times,content,media_url,thumbnail_url,reply_count,like_count,
     return account_name, public_name, profile_picture, top_dates, top_times, top_content, top_url, top_thumbnail, top_reply, top_like, top_retweet
 
 def analytics(content,reply_count,like_count,retweet_count,quote_count):
-    ##Modules
-    import numpy as np
-    import plotly.graph_objects as go
-    import re
-    import collections
     
     #Arranging data
     #Metrics
@@ -322,3 +419,4 @@ def analytics(content,reply_count,like_count,retweet_count,quote_count):
     fig.update_layout(height=900,margin={'l':0,'r':0,'b':0,'t':60},showlegend=False)
     
     return fig
+

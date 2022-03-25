@@ -390,10 +390,10 @@ def graph_title(selected_value):
     State('data_storage','data'))
 def get_graphs(selected_value,data): #missing all the safety for wrong inputs
     if selected_value=='Engagement metrics':
-        fig=engagement_metrics(data[0],data[1],data[8],data[9],data[10],data[11])
+        fig=engagement_metrics(data[0],data[1],data[7],data[8],data[9],data[10])
         return [go.Figure(data=fig)]
     elif selected_value=='Analytics':
-        fig=analytics(data[4],data[8],data[9],data[10],data[11])
+        fig=analytics(data[4],data[7],data[8],data[9],data[10])
         return [go.Figure(data=fig)]
     else:
         return [go.Figure(data={})]
@@ -463,7 +463,7 @@ for i in range(0,5):
     )
     def tweet(selected_value,data,i=i):
         if selected_value=='Top five tweets':
-            account_name,public_name,profile_picture,top_dates,top_times,top_content,top_url,top_thumbnail,top_reply,top_like,top_retweet=top_five(data[1],data[2],data[4],data[5],data[6],data[8],data[9],data[10],data[14],data[15],data[16])
+            account_name,public_name,profile_picture,top_dates,top_times,top_content,top_url,top_thumbnail,top_reply,top_like,top_retweet=top_five(data[1],data[2],data[4],data[5],data[6],data[7],data[8],data[9],data[13],data[14],data[15])
             return profile_picture,account_name,public_name,top_content[i],top_dates[i],top_times[i],top_reply[i],top_retweet[i],top_like[i]
         else:
             return '','','','','','','','',''        

@@ -15,7 +15,7 @@ import plotly.graph_objects as go
 import datetime
 from whitenoise import WhiteNoise
 import os
-from support_functions import 
+from support_functions import date_format, twitter_scrapper, engagement_metrics, top_five, analytics
 #import flask
 
 #STATIC_PATH = 'static'

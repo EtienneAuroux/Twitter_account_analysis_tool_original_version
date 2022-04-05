@@ -32,14 +32,14 @@ Keep every file and subfolder in the same folder (basically just download this r
 
 **Next best thing? Make an .exe with pyinstaller! Or so I thought...**
 - I first ran into all the common problems with pyinstaller such as datapaths and "only work form cmd but not on double-click".
-- After I'd solved, I still had to contend with the snscrape module not being recognized so I had to manually add it and all its dependencies.
+- Afterwards, I still had to contend with the snscrape module not being recognized.
 - Ultimately, I found a workaround:
       - I pip installed snscrape into a folder in the app folder
       - Then imported directly snscrape using SourceFileLoader.load_module() function in my support_function.py file
       - The app.exe worked fine after that
 - Obviously that's not a very good "shareable" solution since the app folder is now 600+ files instead of the 15-ish files I started with.
 
-**Last comments:**
+**Last comments**
 So that's where I am now, the app works perfectly fine locally but sharing it for free with others (that might not know how to code) is giving me headaches.
 If you read this and have a solution, please contact me!
 

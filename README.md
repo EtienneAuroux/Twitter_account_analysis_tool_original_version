@@ -30,7 +30,7 @@ Keep every file and subfolder in the same folder (basically just download this r
 - I have also tried on PythonAnywhere but had the same problem.
 - If you have a solution to this problem I'd greatly appreciate your help :)
 
-**Next best thing? Make an .exe with pyinstaller! Or so I thought...**
+**Next best thing? Make an .exe with pyinstaller! Or so I thought...** 
 - I first ran into all the common problems with pyinstaller such as datapaths and "only work form cmd but not on double-click".
 - Afterwards, I still had to contend with the snscrape module not being recognized.
 - Ultimately, I found a workaround:

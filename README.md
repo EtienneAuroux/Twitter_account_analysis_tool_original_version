@@ -1,6 +1,13 @@
 # Twitter Account Analysis Tool
 ### A web app to analyze twitter accounts using dash and snscrape.
 
+Hello world,
+
+I discovered  Dash thanks to a colleague at work and I thought it would be fun to use it for something else than ploting the data coming out of a Keithley.
+So I made this app, it was a fun project and I learnt a lot!
+The app runs fine locally but I fell short of being able to deploy it online (more below).
+If you want to give it a try, don't hesitate to contact me :)
+
 **You will have to install the following:**
 - Python, at least version 3.7
 - numpy 1.19.2

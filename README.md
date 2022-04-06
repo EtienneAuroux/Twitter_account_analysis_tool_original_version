@@ -18,6 +18,8 @@ If you want to give it a try, don't hesitate to contact me :)
 - Flask 1.1.2
 - plotly 5.6.0
 - snscrape 0.3.3
+- whitenoise 6.0.0
+- threaded 4.1.0
 
 Note that these versions were what I had when I made the app, it will _probably_ still work if you have later versions.
 I would recommend to simply start with pip install. If you encounter any module related problem try to downgrade your modules to the indicated versions.

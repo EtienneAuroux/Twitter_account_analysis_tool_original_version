@@ -17,7 +17,7 @@ from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 import datetime
 import webbrowser
-from threading import Timer 
+from threading import Timer
 
 ##Layout of the webpage
 default_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css']

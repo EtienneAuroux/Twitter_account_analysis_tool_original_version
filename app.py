@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Feb 26 12:17:41 2022
-
-@author: ETIENNEA
+Project: Twitter Account Analysis App
+Started in february 2022
+@author: Etienne Auroux
 """
 
 ##Installation

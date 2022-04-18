@@ -385,7 +385,7 @@ def graph_title(selected_value):
     [Output('metrics','figure')],
     Input('plot_select','value'),
     State('data_storage','data'))
-def get_graphs(selected_value,data): #missing all the safety for wrong inputs
+def get_graphs(selected_value,data):
     if selected_value=='Engagement metrics':
         fig=engagement_metrics(data[0],data[1],data[7],data[8],data[9],data[10])
         return [go.Figure(data=fig)]
